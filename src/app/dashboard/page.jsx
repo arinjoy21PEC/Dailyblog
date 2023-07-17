@@ -17,7 +17,7 @@ const Dashboard = () => {
   // useEffect(() => {
   //   const getData = async () => {
   //     setIsLoading(true);
-  //     const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+  //     const res = await fetch("https://jsonplaceholder.typicode.com/post", {
   //       cache: "no-store",
   //     });
 
@@ -41,7 +41,9 @@ const Dashboard = () => {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const { data, mutate, error, isLoading } = useSWR(
-    `/api/post?username=${session?.data?.user.name}`,
+    session?.data?.user.name
+      ? `/api/post?username=${encodeURIComponent(session.data.user.name)}`
+      : null,
     fetcher
   );
 
