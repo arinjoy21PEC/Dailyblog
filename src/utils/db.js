@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const connect = async () => {
   try {
-    await mongoose.connect('mongodb+srv://arinjoynandy:arinjoynandy@cluster0.z4j6ohm.mongodb.net/test?retryWrites=true&w=majority');
+    await mongoose.connect(process.env.MONGO);
   } catch (error) {
     throw new Error("Connection failed!");
   }
