@@ -44,8 +44,8 @@ const handler = NextAuth({
       clientSecret: process.env.GITHUB_SECRET,
     }),
     GoogleProvider({
-      clientId: "751671269438-6qsjqsm6a4f3kqaglbpe8199ef10ejh5.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
   pages: {
