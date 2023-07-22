@@ -4,13 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 async function getData() {
-  const res = await fetch("/api/post", {
+  const res = await fetch("http://localhost:3000/api/post", {
     cache: "no-store",
   });
 
-  // if (!res.ok) {
-  //   throw new Error("Failed to fetch data");
-  // }
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
 
   return res.json();
 }
